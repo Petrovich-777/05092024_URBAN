@@ -1,0 +1,9 @@
+# Слишком древний шифр
+Z = int(input('Ведите число от 3 до 20: '))
+numbers = []
+for i in range(1, Z):
+    for j in range(2, 20):
+        if Z % (i + j)  == 0 and (i, j) not in numbers and (j, i) not in numbers and i != j:
+             numbers.append([i,j])
+print(numbers)
+print(type (numbers[0]))
