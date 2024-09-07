@@ -1,0 +1,26 @@
+calls = 0
+def count_calls():
+    global calls
+    calls += 1
+    return(calls)
+
+def string_info(tupel1):
+    count_calls()
+    tupel0 = (len(tupel1), tupel1.upper(), tupel1.lower())
+    return(tupel0)
+
+def is_contains(string, list_to_search):
+    count_calls()
+    Bool = True
+    if type(string) == str and type(list_to_search) == list:
+        if string in list_to_search:
+            Bool = True
+        else:
+            Bool = False
+    else:
+         print('Некорректный ввод переменных функции is_contains!')
+    return (Bool)
+print(string_info('MAIL'))
+print(is_contains('Вася', ['Коля','Толя','Вася']))
+print(is_contains('Вася', ['Коля','Толя','Петя']))
+print(calls)
