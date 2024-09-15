@@ -1,0 +1,52 @@
+# Дополнительное практическое задание по модулю: "Подробнее о функциях."
+# 1 вариант
+data_structure = [
+    [1, 2, 3],
+    {'a': 4, 'b': 5},
+    (6, {'cube': 7, 'drum': 8}),
+    "Hello",
+    ((), [{(2, 'Urban', ('Urban2', 35))}])
+]
+def calculate_structure_sum(data_structure):
+    total_sum = 0
+    if isinstance(data_structure, (int, float)):
+        return data_structure
+    elif isinstance(data_structure, str):
+        return len(data_structure)
+    elif isinstance(data_structure, (list, tuple, set)):
+        for item in data_structure:
+            total_sum += calculate_structure_sum(item)
+    elif isinstance(data_structure, dict):
+        for key, value in data_structure.items():
+            total_sum += calculate_structure_sum(key)
+            total_sum += calculate_structure_sum(value)
+    return total_sum
+
+result = calculate_structure_sum(data_structure)
+print(result)
+
+# вариант
+data_structure = [
+    [1, 2, 3],
+    {'a': 4, 'b': 5},
+    (6, {'cube': 7, 'drum': 8}),
+    "Hello",
+    ((), [{(2, 'Urban', ('Urban2', 35))}])
+]
+
+def join(data_structure):
+    total_sum = 0
+    for i in data_structure:
+        if type(i) == int or type(i) == float:
+            total_sum += i
+        elif type(i) == str:
+            total_sum += len(i)
+        elif type(i) == tuple or type(i) == list or type(i) == set:
+            total_sum += join(i)
+        elif type(i) == dict:
+            for k in i.items():
+                total_sum += join(k)
+    return (total_sum)
+
+join(data_structure)
+print(join(data_structure))
