@@ -1,0 +1,5 @@
+def divide(a = 6, b = 3):
+    if b == 0:
+        from math import inf
+        return print(inf)
+    return print(a / b)
