@@ -1,0 +1,4 @@
+def divide(a = 5, b = 2):
+    if b == 0:
+        return print('ОШИБКА!!!')
+    return (print(a / b))
